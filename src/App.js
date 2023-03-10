@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import ProfilePage1 from './ProfilePage1';
+import ProfilePage2 from './ProfilePage2';
 
 function App() {
+  const [Option, setOption] = useState('Hi');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>This Is {Option}</h1>
+      <select onChange={e => setOption(e.target.value)}>
+        <option>Him</option>
+        <option>Her</option>
+        <option>Hi</option>
+      </select>
+      <br/>
+      <ProfilePage1 user={Option} />
+      <ProfilePage2 user={Option} />
     </div>
   );
 }
